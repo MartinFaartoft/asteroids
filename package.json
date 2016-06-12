@@ -1,0 +1,17 @@
+{
+  "name": "asteroids",
+  "version": "1.0.0",
+  "description": "A Clone of the classic Asteroids game written in Typescript",
+  "main": "app.js",
+  "author": "martin.faartoft@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "ts-loader": "^0.8.2"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2"
+  }
+}
