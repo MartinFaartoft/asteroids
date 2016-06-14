@@ -1,6 +1,7 @@
-import Entity from "./entity";
+import Entity from "./pistonjs/entity";
+import Collidable from "./pistonjs/collidable";
+
 import Explosion from "./explosion";
-import Collidable from "./collidable";
 import GameState from "./gamestate";
 import Meteor from "./meteor";
 

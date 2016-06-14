@@ -1,9 +1,9 @@
-import Entity from "./entity";
+import Entity from "./pistonjs/entity";
 import Bullet from "./bullet";
-import Collidable from "./collidable";
+import Collidable from "./pistonjs/collidable";
 import GameState from "./gamestate";
-import EntityWithSprites from "./entitywithsprites";
-import Sprite from "./sprite";
+import EntityWithSprites from "./pistonjs/entitywithsprites";
+import Sprite from "./pistonjs/sprite";
 
 export default class Meteor extends EntityWithSprites implements Collidable {
     public static SCALING_FACTOR: number = 30;

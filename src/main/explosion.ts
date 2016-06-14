@@ -1,6 +1,6 @@
-import Entity from "./entity";
+import Entity from "./pistonjs/entity";
 import GameState from "./gamestate";
-import Sprite from "./sprite";
+import Sprite from "./pistonjs/sprite";
 
 export default class Explosion extends Entity {
     static LIFESPAN: number = .5;

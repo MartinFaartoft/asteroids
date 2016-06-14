@@ -2,8 +2,8 @@
 
 import Meteor from "./meteor";
 import GameState from "./gamestate";
-import Engine from "./engine";
-import ResourceManager from "./resourcemanager";
+import Engine from "./pistonjs/engine";
+import ResourceManager from "./pistonjs/resourcemanager";
 
 // create canvas
 let canvas = document.createElement("canvas");

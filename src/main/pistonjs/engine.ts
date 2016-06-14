@@ -1,11 +1,11 @@
 "use strict";
 
-import GameState from "./gamestate";
+import BaseGameState from "./basegamestate";
 
 export default class Engine {
     public lastTime: number = Date.now();
 
-    constructor(public state: GameState, public ctx: CanvasRenderingContext2D, public debug: boolean) { }
+    constructor(public state: BaseGameState, public ctx: CanvasRenderingContext2D, public debug: boolean) { }
 
     run() {
         let now = Date.now();

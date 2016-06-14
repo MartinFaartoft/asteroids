@@ -1,15 +1,20 @@
 "use strict";
 
-import Entity from "./entity";
-import { WinScreen, DebugDisplay, GameOverScreen, Background } from "./entity";
+import BaseGameState from "./pistonjs/basegamestate";
+import Entity from "./pistonjs/entity";
+import isKeyDown from "./pistonjs/input";
+import ResourceManager from "./pistonjs/resourcemanager";
+
 import Spaceship from "./spaceship";
 import Bullet from "./bullet";
 import Explosion from "./explosion";
 import Meteor from "./meteor";
-import ResourceManager from "./resourcemanager";
-import isKeyDown from "./input";
+import DebugDisplay from "./debugDisplay";
+import Background from "./background";
+import WinScreen from "./winscreen";
+import GameOverScreen from "./gameOverScreen";
 
-export default class GameState {
+export default class GameState extends BaseGameState {
     public background: Background = new Background();
     public gameOverScreen: GameOverScreen = new GameOverScreen();
     public winScreen: WinScreen = new WinScreen();
@@ -25,6 +30,7 @@ export default class GameState {
     constructor(public dimensions: number[], 
                 public resourceManager: ResourceManager, 
                 public debug: boolean) {
+        super(dimensions);
         this.spaceship = new Spaceship([dimensions[0] / 2.0, dimensions[1] / 2.0]);
     }
 
