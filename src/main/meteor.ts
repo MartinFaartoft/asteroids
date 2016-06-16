@@ -1,11 +1,7 @@
-import Entity from "./pistonjs/entity";
 import Bullet from "./bullet";
-import Collidable from "./pistonjs/collidable";
 import GameState from "./gamestate";
-import EntityWithSprites from "./pistonjs/entitywithsprites";
-import Sprite from "./pistonjs/sprite";
 
-export default class Meteor extends EntityWithSprites implements Collidable {
+export default class Meteor extends ps.EntityWithSprites implements ps.Collidable {
     public static SCALING_FACTOR: number = 30;
     public static SPLIT_FACTOR: number = 3;
     public static POST_EXPLOSION_MAX_SPEED: number = 200;
@@ -16,7 +12,7 @@ export default class Meteor extends EntityWithSprites implements Collidable {
     constructor(pos: number[], speed: number[], public size: number) {
         super(pos, speed, size * Meteor.SCALING_FACTOR);
 
-        this.sprites.push(new Sprite([0, 0], [90, 90], [0, 1, 2], 3, "assets/meteor.png"));
+        this.sprites.push(new ps.Sprite([0, 0], [90, 90], [0, 1, 2], 3, "assets/meteor.png"));
     }
 
     update(dt: number, state: GameState) {
@@ -45,7 +41,7 @@ export default class Meteor extends EntityWithSprites implements Collidable {
         return meteors;
     }
 
-    collideWith(other: Entity, state: GameState) {
+    collideWith(other: ps.Entity, state: GameState) {
         if (other instanceof Bullet) {
             this.destroyed = true;
 

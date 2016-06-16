@@ -1,18 +1,14 @@
-import Entity from "./pistonjs/entity";
 import Explosion from "./explosion";
-import EntityWithSprites from "./pistonjs/entitywithsprites";
-import Collidable from "./pistonjs/collidable";
 import GameState from "./gamestate";
-import Sprite from "./pistonjs/sprite";
 import Bullet from "./bullet";
 import Meteor from "./meteor";
 
-export default class Spaceship extends EntityWithSprites implements Collidable {
+export default class Spaceship extends ps.EntityWithSprites implements ps.Collidable {
     static SHOT_DELAY: number = .1; // seconds
     static RADIUS: number = 29;
     
-    private spaceShipSprite: Sprite;
-    private burnSprite: Sprite;
+    private spaceShipSprite: ps.Sprite;
+    private burnSprite: ps.Sprite;
 
     heading: number = Math.PI / 2.0; // facing north by default
     rotation_speed: number = 150 * Math.PI / 180.0;
@@ -23,8 +19,8 @@ export default class Spaceship extends EntityWithSprites implements Collidable {
     constructor(pos: number[]) {
         super(pos, [0, 0], Spaceship.RADIUS);
 
-        this.spaceShipSprite = new Sprite([0, 0], [59, 59], [0, 1, 2], 5, "assets/spaceship.png");
-        this.burnSprite = new Sprite([0, 0], [59, 59], [0, 1, 2, 1], 8, "assets/burn.png");
+        this.spaceShipSprite = new ps.Sprite([0, 0], [59, 59], [0, 1, 2], 5, "assets/spaceship.png");
+        this.burnSprite = new ps.Sprite([0, 0], [59, 59], [0, 1, 2, 1], 8, "assets/burn.png");
         this.sprites.push(this.spaceShipSprite, this.burnSprite);
     }
 
@@ -77,7 +73,7 @@ export default class Spaceship extends EntityWithSprites implements Collidable {
         this.heading = this.heading % (Math.PI * 2);
     }
 
-    collideWith(other: Entity, state: GameState) {
+    collideWith(other: ps.Entity, state: GameState) {
         if (!state.isGameOver && other instanceof Meteor) {
             this.destroyed = true;
             state.isGameOver = true;

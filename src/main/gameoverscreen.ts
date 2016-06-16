@@ -1,9 +1,8 @@
 "use strict";
 
-import Entity from "./pistonjs/entity";
 import GameState from "./gamestate";
 
-export default class GameOverScreen extends Entity {
+export default class GameOverScreen extends ps.Entity {
 
     constructor() {
         super([0, 0], [0, 0], 0);

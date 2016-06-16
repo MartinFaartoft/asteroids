@@ -1,16 +1,14 @@
-import Entity from "./pistonjs/entity";
 import GameState from "./gamestate";
-import Sprite from "./pistonjs/sprite";
 
-export default class Explosion extends Entity {
+export default class Explosion extends ps.Entity {
     static LIFESPAN: number = .5;
-    sprite: Sprite;
+    sprite: ps.Sprite;
     age: number = 0;
     
     constructor(pos: number[]) {
         super(pos, [0, 0], 60);
 
-        this.sprite = new Sprite([0, 0], [120, 120], [0, 2, 1, 0, 1, 2, 0], 8, "assets/explosion.png");
+        this.sprite = new ps.Sprite([0, 0], [120, 120], [0, 2, 1, 0, 1, 2, 0], 8, "assets/explosion.png");
     }
 
     update(dt: number, state: GameState) {

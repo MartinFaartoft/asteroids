@@ -1,7 +1,5 @@
 "use strict";
-
-import ResourceManager from "../main/pistonjs/resourcemanager"; 
-
+ 
 import GameState from "../main/gamestate";
 import Spaceship from "../main/spaceship";
 import Meteor from "../main/meteor";
@@ -9,7 +7,7 @@ import Bullet from "../main/bullet";
 
 let state: GameState = null;
 let spaceship: Spaceship = null;
-let resourceManager: ResourceManager = new ResourceManager();
+let resourceManager: ps.ResourceManager = new ps.ResourceManager();
 
 beforeEach(() =>  {
     state = new GameState([100, 100], resourceManager, false);

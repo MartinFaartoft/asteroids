@@ -2,8 +2,6 @@
 
 import Meteor from "./meteor";
 import GameState from "./gamestate";
-import Engine from "./pistonjs/engine";
-import ResourceManager from "./pistonjs/resourcemanager";
 
 // create canvas
 let canvas = document.createElement("canvas");
@@ -15,9 +13,9 @@ document.body.appendChild(canvas);
 // prepare game state and engine
 let debug = false;
 let dimensions = [canvas.width, canvas.height];
-let resourceManager: ResourceManager = new ResourceManager();
+let resourceManager: ps.ResourceManager = new ps.ResourceManager();
 let state: GameState = new GameState(dimensions, resourceManager, debug);
-let engine: Engine = new Engine(state, ctx, debug);
+let engine: ps.Engine = new ps.Engine(state, ctx, debug);
 
 
 function init() {

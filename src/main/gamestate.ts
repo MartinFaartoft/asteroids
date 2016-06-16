@@ -1,10 +1,5 @@
 "use strict";
 
-import BaseGameState from "./pistonjs/basegamestate";
-import Entity from "./pistonjs/entity";
-import isKeyDown from "./pistonjs/input";
-import ResourceManager from "./pistonjs/resourcemanager";
-
 import Spaceship from "./spaceship";
 import Bullet from "./bullet";
 import Explosion from "./explosion";
@@ -14,7 +9,7 @@ import Background from "./background";
 import WinScreen from "./winscreen";
 import GameOverScreen from "./gameOverScreen";
 
-export default class GameState extends BaseGameState {
+export default class GameState extends ps.BaseGameState {
     public background: Background = new Background();
     public gameOverScreen: GameOverScreen = new GameOverScreen();
     public winScreen: WinScreen = new WinScreen();
@@ -28,7 +23,7 @@ export default class GameState extends BaseGameState {
     public isWinner: boolean = false;
 
     constructor(public dimensions: number[], 
-                public resourceManager: ResourceManager, 
+                public resourceManager: ps.ResourceManager, 
                 public debug: boolean) {
         super(dimensions);
         this.spaceship = new Spaceship([dimensions[0] / 2.0, dimensions[1] / 2.0]);
@@ -79,21 +74,21 @@ export default class GameState extends BaseGameState {
 
     handleInput(dt) {
         if (!this.isGameOver && !this.isWinner) {
-            if (isKeyDown("UP")) {
+            if (ps.isKeyDown("UP")) {
                 this.spaceship.burn(dt);
             } else {
                 this.spaceship.stopBurn();
             }
 
-            if (isKeyDown("LEFT")) {
+            if (ps.isKeyDown("LEFT")) {
                 this.spaceship.rotateCounterClockWise(dt);
             }
 
-            if (isKeyDown("RIGHT")) {
+            if (ps.isKeyDown("RIGHT")) {
                 this.spaceship.rotateClockWise(dt);
             }
 
-            if (isKeyDown("SPACE")) {
+            if (ps.isKeyDown("SPACE")) {
                 this.spaceship.fire(this);
             }
         }
@@ -119,7 +114,7 @@ export default class GameState extends BaseGameState {
         };
     }
 
-    detectCollisionWithWrapping(a: Entity, b: Entity) {
+    detectCollisionWithWrapping(a: ps.Entity, b: ps.Entity) {
         let wrappedEntities = b.getWrappedBoundingCircles(this.dimensions);
         for (let i = 0; i < wrappedEntities.length; i++) {
             if (this.detectCollision(a, wrappedEntities[i])) {

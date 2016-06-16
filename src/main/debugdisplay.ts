@@ -1,9 +1,8 @@
 "use strict";
 
-import Entity from "./pistonjs/entity";
 import GameState from "./gamestate";
 
-export default class DebugDisplay extends Entity {
+export default class DebugDisplay extends ps.Entity {
     fps: number = 0;
     
     constructor() {
